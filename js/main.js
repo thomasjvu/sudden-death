@@ -5,3 +5,69 @@ canvas.width = 1024
 canvas.height = 576
 
 context.fillRect(0, 0, canvas.width, canvas.height)
+
+const gravity = 0.2
+
+
+class Sprite {
+    constructor({position, velocity}) {
+        this.position = position
+        this.velocity = velocity
+        this.height = 150
+    }
+
+    draw() {
+        context.fillStyle = 'red'
+        context.fillRect(this.position.x, this.position.y, 50, this.height)
+    }
+
+    update() {
+        this.draw()
+        this.position.y += this.velocity.y
+        // this.position.x += this.velocity.x
+        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+            this.velocity.y = 0
+        } else {
+        this.velocity.y += gravity
+        }
+    }
+}
+
+const player = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    velocity: {
+        x: 0,
+        y: 10
+    }
+})
+
+
+const enemy = new Sprite({
+    position: {
+        x: 400,
+        y: 100
+    },
+    velocity: {
+        x: 0,
+        y: 0
+    }
+})
+
+
+console.log(player)
+console.log(enemy)
+
+function animate() {
+    window.requestAnimationFrame(animate)
+    context.fillStyle = 'black'
+    context.fillRect(0, 0, canvas.height, canvas.width)
+    player.update()
+    enemy.update()
+    // console.log('animate')
+}
+
+animate()
+
