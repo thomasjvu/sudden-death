@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: 'Sriracha', cursive;
 }
 
 html {
@@ -14,7 +17,9 @@ main {
     text-align: center;
     position: relative;
     display: inline-block;
+    width: 100%;
 }
+
 canvas {
 }
 
@@ -113,7 +118,6 @@ h1 {
 
 /* Canvas Container */
 #canvasContainer {
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
