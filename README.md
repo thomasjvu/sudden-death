@@ -1,15 +1,15 @@
-# The First Strike! (2D Fighting Game)
-This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript.
+# The First Strike! 
+This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It's meant to showcase the power of vanilla HTML and JavaScript, no game engine or framework needed!
 
 ## How to Play
 This is a local co-op game meant to be played with a friend using the same keyboard. 
 The premise is symbol, make the first strike to defeat your enemy!
 
 ### Player 1 Controls 
-Move Left: `a`
-Move Right: `d`
-Jump: `w`
-Attack: `space`
+- Move Left: `a`
+- Move Right: `d`
+- Jump: `w`
+- Attack: `space`
 
 ### Player 2 Controls
 Move Left: `ArrowLeft`
@@ -36,7 +36,7 @@ Attack: `ArrowDown`
 - [] Pushing Live
 
 ## Optimization Checklist
-After the base functionality of the game is complete and v1 is live, here are some additional optimizations that will be made in a future date.
+After the base functionality of the game is complete and V1 is live, here are some additional optimizations that will be made in a future date.
 
 - [] Add music
 - [] Add sound effects
