@@ -28,20 +28,20 @@ Attack: `ArrowDown`
 - [x] Game Timers and Game Over
 
 ### Sprites and Animation
-- [] Background Sprite
-- [] Additional Sprite with Animation
-- [] Player 1 Sprite
-- [] Player 2 Sprite
-- [] Interface Design and Animation
-- [] Pushing Live
+- [ ] Background Sprite
+- [ ] Additional Sprite with Animation
+- [ ] Player 1 Sprite
+- [ ] Player 2 Sprite
+- [ ] Interface Design and Animation
+- [ ] Pushing Live
 
 ## Optimization Checklist
 After the base functionality of the game is complete and V1 is live, here are some additional optimizations that will be made in a future date.
 
-- [] Add music
-- [] Add sound effects
-- [] Add more characters
-- [] Add character select screen
+- [ ] Add music
+- [ ] Add sound effects
+- [ ] Add more characters
+- [ ] Add character select screen
 
 ## View My Other Projects
 Interested in some other related gaming projects? Check these out...!
