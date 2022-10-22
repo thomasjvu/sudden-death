@@ -159,7 +159,8 @@ function animate() {
             rectangle1: player,
             rectangle2: enemy
         }) &&
-            player.isAttacking
+            player.isAttacking,
+            document.querySelector('#enemyHealth').style.width = '20%'
         ) {
         player.isAttacking = false
         console.log('Attack successful!')

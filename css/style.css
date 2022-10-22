@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     background: #797979;
 }
@@ -6,8 +10,34 @@ body {
 
 }
 
+main {
+    position: relative;
+    display: inline-block;
+}
+main > section{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+}
 canvas {
-    margin: 0 auto;
 }
 
+#playerHealth {
+    background: yellow;
+    height: 30px;
+    width: 100%;
+}
+#timer {
+    background: red;
+    height: 100px;
+    width: 100px;
+    flex-shrink: 0;
+}
+#enemyHealth{
+    background: yellow;
+    height: 30px;
+    width: 100%;
+}
 
