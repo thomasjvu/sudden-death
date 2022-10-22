@@ -5,7 +5,7 @@
 - [x] Project Setup
 - [x] Create Player and Enemy
 - [x] Move Characters with Event Listeners
-- [ ] Attacks
+- [x] Attacks
 - [ ] Health Bar Interface
 - [ ] Game Timers and Game Over
 
