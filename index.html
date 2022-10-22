@@ -10,21 +10,31 @@
     <!-- red container div -->
     <main>
         <!-- smaller red container div -->
-        <section id="smaller-container">
+        <section id="smallerContainer">
             <!-- player health -->
-            <section id="playerHealth">
+            <section id="playerHealthContainer">
+                <section id="playerHealthMax"></section>
+                <section id="playerHealth"></section>
             </section>
             <!-- timer -->
-            <section id="timer"></section>
-            <!-- enemy health -->
-            <section>
-            <section id="enemyHealth"></section>
-            <section class="HealthContainer"></section>
+            <section id="timer">
+                <p id="time">10</p>
             </section>
+            <!-- enemy health -->
+            <section id="enemyHealthContainer">
+                <section id="enemyHealthMax"></section>
+                <section id="enemyHealth"></section>
+            </section>
+            <section></section>
         </section>
-        <canvas></canvas>  
-
+        <section id="score">
+            <h2>draw</h2>
+        </section>
+        <section id="canvasContainer">
+            <canvas></canvas>  
+        </section>
     <main>
+
     <script src="js/main.js"></script>
 </body>
 </html>

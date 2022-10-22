@@ -11,33 +11,110 @@ body {
 }
 
 main {
+    text-align: center;
     position: relative;
     display: inline-block;
-}
-main > section{
-    position: absolute;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding: 20px;
 }
 canvas {
 }
 
-#playerHealth {
+h1 {
+    text-align: center;
+}
+
+/************************
+ * Health Bar Interface *
+ * **********************/
+#smallerContainer{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 5px;
+}
+
+
+/* Player Health */
+#playerHealthContainer {
+    position: relative;
+    /* height: 30px; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 4px solid white;
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+
+}
+
+#playerHealthMax {
     background: yellow;
     height: 30px;
     width: 100%;
 }
+
+#playerHealth {
+    background: blue;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* left: 0; */
+    width: 100%;
+}
+
+/* Enemy Health */
+#enemyHealthContainer {
+    position: relative;
+    width: 100%;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+}
+
+#enemyHealthMax {
+    background: yellow;
+    height: 30px;
+}
+
+#enemyHealth {
+    background: blue;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+/* Timer */
 #timer {
     background: red;
     height: 100px;
     width: 100px;
     flex-shrink: 0;
-}
-#enemyHealth{
-    background: yellow;
-    height: 30px;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Score */
+#score {
+    position: absolute;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* Canvas Container */
+#canvasContainer {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   

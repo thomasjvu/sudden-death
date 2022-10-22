@@ -9,7 +9,7 @@ context.fillRect(0, 0, canvas.width, canvas.height)
 const gravity = 0.7
 
 
-class Sprite {
+class Fighter {
     constructor({position, velocity, color, offset}) {
         this.position = position
         this.velocity = velocity
@@ -27,6 +27,7 @@ class Sprite {
         }
         this.color = color
         this.isAttacking
+        this.health = 100
     }
 
     draw() {
@@ -66,6 +67,66 @@ class Sprite {
     }
 
 }
+
+class Sprite {
+    constructor({position, velocity, color, offset}) {
+        this.position = position
+        this.velocity = velocity
+        this.width = 50
+        this.height = 150
+        this.lastKey
+        this.hitBox = {
+            position: {
+                x: this.position.x,
+                y: this.position.y
+            },
+            offset,
+            width: 100,
+            height: 50
+        }
+        this.color = color
+        this.isAttacking
+        this.health = 100
+    }
+
+    draw() {
+        context.fillStyle = this.color
+        context.fillRect(this.position.x, this.position.y, this.width, this.height)
+
+        // hit box
+        if (this.isAttacking) {
+            context.fillStyle = 'green'
+            context.fillRect(
+            this.hitBox.position.x, 
+            this.hitBox.position.y, 
+            this.hitBox.width, 
+            this.hitBox.height
+            )
+        }
+    }
+
+    update() {
+        this.draw()
+        this.hitBox.position.x = this.position.x + this.hitBox.offset.x
+        this.hitBox.position.y = this.position.y
+        this.position.y += this.velocity.y
+        this.position.x += this.velocity.x
+        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+            this.velocity.y = 0
+        } else {
+        this.velocity.y += gravity
+        }
+    }
+
+    attack() {
+        this.isAttacking = true
+        setTimeout(() => {
+            this.isAttacking = false
+        }, 100)
+    }
+
+}
+
 
 const player = new Sprite({
     position: {
@@ -130,6 +191,35 @@ function rectangularCollision({rectangle1, rectangle2}) {
     )
 }
 
+
+function determineWinner({player, enemy, timerId}) {
+    clearTimeout(timerId)
+    document.querySelector('#score').style.display = 'flex'
+    if (player.health === enemy.health) {
+        document.querySelector('#score').innerHTML = 'Draw!'
+    } else if (player.health > enemy.health) {
+        document.querySelector('#score').innerHTML = 'Player 1 Wins!'
+    } else if (player.health < enemy.health) {
+        document.querySelector('#score').innerHTML = 'Player 2 Wins!'
+    }
+}
+
+let timerId
+let timer = 60
+function decreaseTimer() {
+    if (timer > 0) {
+        timerId = setTimeout(decreaseTimer, 1000)
+        timer--
+        document.querySelector('#time').innerHTML = timer
+    }
+    
+    if (timer === 0) {
+        determineWinner({player, enemy, timerId})
+    }
+}
+
+decreaseTimer()
+
 function animate() {
     window.requestAnimationFrame(animate)
     context.fillStyle = 'black'
@@ -159,11 +249,12 @@ function animate() {
             rectangle1: player,
             rectangle2: enemy
         }) &&
-            player.isAttacking,
-            document.querySelector('#enemyHealth').style.width = '20%'
+            player.isAttacking
         ) {
         player.isAttacking = false
-        console.log('Attack successful!')
+        enemy.health -= 100
+        document.querySelector('#enemyHealth').style.width = enemy.health + '%' 
+        console.log('Player Attack successful!')
     }
 
     if (rectangularCollision({
@@ -173,7 +264,14 @@ function animate() {
             enemy.isAttacking
         ) {
         enemy.isAttacking = false
-        console.log('Attack successful!')
+        player.health -= 100
+        document.querySelector('#playerHealth').style.width = player.health + '%'
+        console.log('Enemy Attack successful!')
+    }
+
+    // end game based on health
+    if (enemy.health <= 0 || player.health <= 0) {
+        determineWinner({player, enemy, timerId})
     }
 
 }
