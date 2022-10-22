@@ -36,6 +36,7 @@ h1 {
     width: 100%;
     align-items: center;
     padding: 5px;
+    justify-content: center;
 }
 
 
@@ -43,7 +44,7 @@ h1 {
 #playerHealthContainer {
     position: relative;
     /* height: 30px; */
-    width: 100%;
+    width: 20%;
     display: flex;
     justify-content: flex-end;
     border-top: 4px solid white;
@@ -71,7 +72,7 @@ h1 {
 /* Enemy Health */
 #enemyHealthContainer {
     position: relative;
-    width: 100%;
+    width: 20%;
     border-top: 4px solid white;
     border-bottom: 4px solid white;
     border-right: 4px solid white;
