@@ -6,7 +6,7 @@ canvas.height = 576
 
 context.fillRect(0, 0, canvas.width, canvas.height)
 
-const gravity = 0.9
+const gravity = 0.8
 
 const background = new Sprite({
     position: {
@@ -71,6 +71,10 @@ const player = new Fighter({
         takeHit: {
             imageSrc: './img/Huntress/Sprites/Take hit.png',
             framesMax: 3
+        },
+        death: {
+            imageSrc: './img/Huntress/Sprites/Death.png',
+            framesMax: 8
         }
     },
     hitBox: {
@@ -102,7 +106,7 @@ const enemy = new Fighter({
     framesMax: 4,
     offset: {
         x: 215,
-        y: 250
+        y: 240
     },
     sprites: {
         idle: {
@@ -128,6 +132,10 @@ const enemy = new Fighter({
         takeHit: {
             imageSrc: './img/Samurai/Sprites/Take hit.png',
             framesMax: 3
+        },
+        death: {
+            imageSrc: './img/Samurai/Sprites/Death.png',
+            framesMax: 7
         }
     },
     hitBox: {
@@ -164,6 +172,8 @@ function animate() {
     context.fillRect(0, 0, canvas.height, canvas.width)
     background.update()
     bat.update()
+    context.fillStyle = 'rgba(255, 255, 255, 0.15)'
+    context.fillRect(0, 0, canvas.width, canvas.height)
     player.update()
     enemy.update()
 
@@ -215,7 +225,9 @@ function animate() {
         ) {
         enemy.takeHit()
         player.isAttacking = false
-        document.querySelector('#enemyHealth').style.width = enemy.health + '%' 
+        gsap.to('#enemyHealth', {
+            width: enemy.health + '%'
+        })
         console.log('Player Attack successful!')
     }
 
@@ -229,11 +241,13 @@ function animate() {
             rectangle1: enemy,
             rectangle2: player
         }) &&
-            enemy.isAttacking && player.framesCurrent === 2 
+            enemy.isAttacking && enemy.framesCurrent === 2 
         ) {
         player.takeHit()
         enemy.isAttacking = false
-        document.querySelector('#playerHealth').style.width = player.health + '%'
+        gsap.to('#playerHealth', {
+            width: player.health + '%'
+        })
         console.log('Enemy Attack successful!')
     }
 
@@ -246,12 +260,12 @@ function animate() {
     if (enemy.health <= 0 || player.health <= 0) {
         determineWinner({player, enemy, timerId})
     }
-
 }
 
 animate()
 
 window.addEventListener('keydown', (event) => {
+    if (!player.dead) {
     switch (event.key) {
         case 'd':
             keys.d.pressed = true
@@ -262,27 +276,30 @@ window.addEventListener('keydown', (event) => {
             player.lastKey = 'a'
             break
         case 'w':
-            player.velocity.y = -20
+            player.velocity.y = -15
             break
         case ' ':
             player.attack()
             break
-
-        
-        case 'ArrowRight':
-            keys.ArrowRight.pressed = true
-            enemy.lastKey = 'ArrowRight'
-            break
-        case 'ArrowLeft':
-            keys.ArrowLeft.pressed = true
-            enemy.lastKey = 'ArrowLeft'
-            break
-        case 'ArrowUp':
-            enemy.velocity.y = -20
-            break
-        case 'ArrowDown':
-            enemy.attack()
-            break
+    }
+}
+        if(!enemy.dead) {
+        switch(event.key) {
+            case 'ArrowRight':
+                keys.ArrowRight.pressed = true
+                enemy.lastKey = 'ArrowRight'
+                break
+            case 'ArrowLeft':
+                keys.ArrowLeft.pressed = true
+                enemy.lastKey = 'ArrowLeft'
+                break
+            case 'ArrowUp':
+                enemy.velocity.y = -15
+                break
+            case 'ArrowDown':
+                enemy.attack()
+                break
+        }
     }
 })
 
@@ -307,5 +324,3 @@ window.addEventListener('keyup', (event) => {
             break
     }
 })
-
-window.addEventListener
