@@ -16,6 +16,17 @@ const background = new Sprite({
     imageSrc: './img/bg.png'
 })
 
+
+const bat = new Sprite({
+    position: {
+        x: 900,
+        y: 100
+    },
+    imageSrc: './img/bat.png',
+    scale: 2.5,
+    framesMax: 4
+})
+
 const player = new Fighter({
     position: {
         x: 0,
@@ -72,6 +83,7 @@ function animate() {
     context.fillStyle = 'black'
     context.fillRect(0, 0, canvas.height, canvas.width)
     background.update()
+    bat.update()
     player.update()
     enemy.update()
 
