@@ -140,3 +140,25 @@ p {
     align-items: center;
     justify-content: center;
 }   
+
+/************************
+ * Gameplay Instructions *
+ * **********************/
+
+#instructions {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+}
+
+#instructions h3{
+    font-size: 1.75rem;
+}
+
+#instructions h4 {
+}
+
+#instructions p {
+    font-size: 1rem;
+    font-family: monospace;
+}
