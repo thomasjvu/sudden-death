@@ -1,9 +1,9 @@
 # Two-hit Knockout (2HKO) 
 Your enemy only has two hits until they face certain death, but so do you. Bring down your enemy!
 
-This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It's meant to showcase the power of vanilla HTML and JavaScript, no game engine or framework needed!
-
 ![Demo of the Two-hit Knockout Fighting Game](/img/2hko.gif "Demo of the Two-hit KNockout Fighting Game")
+
+This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It's meant to showcase the power of vanilla HTML and JavaScript, no game engine or framework needed!
 
 ## How to Play
 This is a local co-op game meant to be played with a friend using the same keyboard. 
