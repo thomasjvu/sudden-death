@@ -33,7 +33,7 @@ const player = new Fighter({
         y: 100
     },
     velocity: {
-        x: 0,
+        x: 10,
         y: 0
     },
     offset: {
@@ -67,7 +67,19 @@ const player = new Fighter({
         attack1: {
             imageSrc: './img/Huntress/Sprites/Attack1.png',
             framesMax: 5
+        },
+        takeHit: {
+            imageSrc: './img/Huntress/Sprites/Take hit.png',
+            framesMax: 3
         }
+    },
+    hitBox: {
+        offset: {
+            x: 120,
+            y: 50
+        },
+        width: 100,
+        height: 50
     }
 })
 
@@ -78,7 +90,7 @@ const enemy = new Fighter({
         y: 100
     },
     velocity: {
-        x: 0,
+        x: 10,
         y: 0
     },
     offset: {
@@ -112,7 +124,19 @@ const enemy = new Fighter({
         attack1: {
             imageSrc: './img/Samurai/Sprites/Attack1.png',
             framesMax: 4
+        },
+        takeHit: {
+            imageSrc: './img/Samurai/Sprites/Take hit.png',
+            framesMax: 3
         }
+    },
+    hitBox: {
+        offset: {
+            x: -130,
+            y: 50
+        },
+        width: 100,
+        height: 50
     }
 })
 
@@ -182,29 +206,40 @@ function animate() {
         enemy.switchSprite('fall')
     }
 
-    // detect for collision
+    // detect for player collision and enemy gets hit
     if (rectangularCollision({
             rectangle1: player,
             rectangle2: enemy
         }) &&
-            player.isAttacking
+            player.isAttacking && player.framesCurrent === 3
         ) {
+        enemy.takeHit()
         player.isAttacking = false
-        enemy.health -= 100
         document.querySelector('#enemyHealth').style.width = enemy.health + '%' 
         console.log('Player Attack successful!')
     }
 
+    // if player misses
+    if (player.isAttacking && player.framesCurrent === 3) {
+        player.isAttacking = false
+    }
+
+    // detect for enemy collision and player gets hit
     if (rectangularCollision({
             rectangle1: enemy,
             rectangle2: player
         }) &&
-            enemy.isAttacking
+            enemy.isAttacking && player.framesCurrent === 2 
         ) {
+        player.takeHit()
         enemy.isAttacking = false
-        player.health -= 100
         document.querySelector('#playerHealth').style.width = player.health + '%'
         console.log('Enemy Attack successful!')
+    }
+
+    // if enemy misses
+    if (enemy.isAttacking && enemy.framesCurrent === 4) {
+        enemy.isAttacking = false
     }
 
     // end game based on health
