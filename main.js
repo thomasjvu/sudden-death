@@ -19,7 +19,7 @@ const background = new Sprite({
 
 const bat = new Sprite({
     position: {
-        x: 900,
+        x: 850,
         y: 100
     },
     imageSrc: './img/bat.png',
@@ -29,24 +29,30 @@ const bat = new Sprite({
 
 const player = new Fighter({
     position: {
-        x: 0,
+        x: 240,
         y: 0
     },
     velocity: {
         x: 0,
-        y: 10
+        y: 0
     },
     offset: {
         x: 0,
         y: 0
     },
-    color: 'red'
+    imageSrc: './img/Huntress/Sprites/Idle.png',
+    framesMax: 8,
+    scale: 3,
+    offset: {
+        x: 215,
+        y: 160
+    }
 })
 
 
 const enemy = new Fighter({
     position: {
-        x: 400,
+        x: 820,
         y: 100
     },
     velocity: {
@@ -57,7 +63,13 @@ const enemy = new Fighter({
         x: -50,
         y: 0
     },
-    color: 'blue'
+    imageSrc: './img/Huntress/Sprites/Idle.png',
+    scale: 3,
+    framesMax: 8,
+    offset: {
+        x: 215,
+        y: 180
+    }
 })
 
 

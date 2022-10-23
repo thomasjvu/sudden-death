@@ -28,8 +28,8 @@ Attack: `ArrowDown`
 - [x] Game Timers and Game Over
 
 ### Sprites and Animation
-- [ ] Background Sprite
-- [ ] Additional Sprite with Animation
+- [x] Background Sprite
+- [x] Additional Sprite with Animation
 - [ ] Player 1 Sprite
 - [ ] Player 2 Sprite
 - [ ] Interface Design and Animation

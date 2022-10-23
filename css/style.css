@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@font-face {
+  font-family: 'Ghost Clan';
+  src: url(../font/GhostClan.otf);
+}
 
 * {
     box-sizing: border-box;
-    font-family: 'Sriracha', cursive;
+    font-family: 'Ghost Clan', cursive;
 }
 
 html {
-    background: #797979;
+    background: url('../img/wallpaper.jpg');
+    background-size: cover;
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(80x); */
 }
 
 body {
@@ -21,10 +28,17 @@ main {
 }
 
 canvas {
+    border-radius: 5px;
+    border: 3px solid yellow;
 }
 
 h1 {
     text-align: center;
+    font-size: 4rem;
+    color: white;
+}
+p {
+    font-size: 2rem;
 }
 
 /************************
