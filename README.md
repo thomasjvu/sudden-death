@@ -7,7 +7,7 @@ This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It
 
 ## How to Play
 This is a local co-op game meant to be played with a friend using the same keyboard. 
-The premise is symbol, make the first strike to defeat your enemy!
+The premise is simple, make the first strike to defeat your enemy!
 
 ### Player 1 Controls 
 - Move Left: `a`
