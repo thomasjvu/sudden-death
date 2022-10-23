@@ -1,4 +1,6 @@
-# The First Strike! 
+# Two-hit Knockout (2HKO)! 
+Your enemy only has two hits until they face certain death, but so do you. Make sure you're the victor!
+
 This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It's meant to showcase the power of vanilla HTML and JavaScript, no game engine or framework needed!
 
 ## How to Play
@@ -12,10 +14,10 @@ The premise is symbol, make the first strike to defeat your enemy!
 - Attack: `space`
 
 ### Player 2 Controls
-Move Left: `ArrowLeft`
-Move Right: `ArrowRight`
-Jump: `ArrowUp`
-Attack: `ArrowDown`
+- Move Left: `ArrowLeft`
+- Move Right: `ArrowRight`
+- Jump: `ArrowUp`
+- Attack: `ArrowDown`
 
 ## Functionality Checklist
 
@@ -30,18 +32,21 @@ Attack: `ArrowDown`
 ### Sprites and Animation
 - [x] Background Sprite
 - [x] Additional Sprite with Animation
-- [ ] Player 1 Sprite
-- [ ] Player 2 Sprite
-- [ ] Interface Design and Animation
-- [ ] Pushing Live
+- [x] Player 1 Sprite
+- [x] Player 2 Sprite
+- [x] Interface Design and Animation
+- [x] Pushing Live
 
 ## Optimization Checklist
 After the base functionality of the game is complete and V1 is live, here are some additional optimizations that will be made in a future date.
 
 - [ ] Add music
 - [ ] Add sound effects
+- [ ] Add restart button
 - [ ] Add more characters
 - [ ] Add character select screen
+- [ ] Add different stages
+- [ ] Add stage select screen
 
 ## View My Other Projects
 Interested in some other related gaming projects? Check these out...!
