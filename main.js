@@ -6,7 +6,7 @@ canvas.height = 576
 
 context.fillRect(0, 0, canvas.width, canvas.height)
 
-const gravity = 0.7
+const gravity = 0.9
 
 const background = new Sprite({
     position: {
@@ -46,6 +46,16 @@ const player = new Fighter({
     offset: {
         x: 215,
         y: 160
+    },
+    sprites: {
+        idle: {
+            imageSrc: './img/Huntress/Sprites/Idle.png',
+            framesMax: 8
+        },
+        run: {
+            imageSrc: './img/Huntress/Sprites/Run.png',
+            framesMax: 8
+        }
     }
 })
 
@@ -69,6 +79,16 @@ const enemy = new Fighter({
     offset: {
         x: 215,
         y: 180
+    },
+    sprites: {
+        idle: {
+            imageSrc: './img/Huntress/Sprites/Idle.png',
+            framesMax: 8
+        },
+        run: {
+            imageSrc: './img/Huntress/Sprites/Run.png',
+            framesMax: 8
+        }
     }
 })
 
@@ -103,10 +123,13 @@ function animate() {
     enemy.velocity.x = 0
 
     // player movement
+        player.image = player.sprites.idle.image
     if (keys.a.pressed && player.lastKey === 'a') {
         player.velocity.x = -5
+        player.image = player.sprites.run.image
     } else if (keys.d.pressed && player.lastKey === 'd') {
         player.velocity.x = 5
+        player.image = player.sprites.run.image
     }
 
     // enemy movement
