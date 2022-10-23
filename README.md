@@ -1,5 +1,5 @@
-# Two-hit Knockout (2HKO)! 
-Your enemy only has two hits until they face certain death, but so do you. Make sure you're the victor!
+# Two-hit Knockout (2HKO) 
+Your enemy only has two hits until they face certain death, but so do you. Bring down your enemy!
 
 This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It's meant to showcase the power of vanilla HTML and JavaScript, no game engine or framework needed!
 
