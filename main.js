@@ -29,8 +29,8 @@ const bat = new Sprite({
 
 const player = new Fighter({
     position: {
-        x: 240,
-        y: 0
+        x: 200,
+        y: 100
     },
     velocity: {
         x: 0,
@@ -42,10 +42,10 @@ const player = new Fighter({
     },
     imageSrc: './img/Huntress/Sprites/Idle.png',
     framesMax: 8,
-    scale: 3,
+    scale: 3.5,
     offset: {
         x: 215,
-        y: 160
+        y: 200
     },
     sprites: {
         idle: {
@@ -63,6 +63,10 @@ const player = new Fighter({
         fall: {
             imageSrc: './img/Huntress/Sprites/Fall.png',
             framesMax: 2
+        },
+        attack1: {
+            imageSrc: './img/Huntress/Sprites/Attack1.png',
+            framesMax: 5
         }
     }
 })
@@ -70,7 +74,7 @@ const player = new Fighter({
 
 const enemy = new Fighter({
     position: {
-        x: 820,
+        x: 775,
         y: 100
     },
     velocity: {
@@ -81,29 +85,33 @@ const enemy = new Fighter({
         x: -50,
         y: 0
     },
-    imageSrc: './img/Huntress/Sprites/Idle.png',
+    imageSrc: './img/Samurai/Sprites/Idle.png',
     scale: 3,
-    framesMax: 8,
+    framesMax: 4,
     offset: {
         x: 215,
-        y: 180
+        y: 250
     },
     sprites: {
         idle: {
-            imageSrc: './img/Huntress/Sprites/Idle.png',
-            framesMax: 8
+            imageSrc: './img/Samurai/Sprites/Idle.png',
+            framesMax: 4
         },
         run: {
-            imageSrc: './img/Huntress/Sprites/Run.png',
+            imageSrc: './img/Samurai/Sprites/Run.png',
             framesMax: 8
         },
         jump: {
-            imageSrc: './img/Huntress/Sprites/Jump.png',
+            imageSrc: './img/Samurai/Sprites/Jump.png',
             framesMax: 2
         },
         fall: {
-            imageSrc: './img/Huntress/Sprites/Fall.png',
+            imageSrc: './img/Samurai/Sprites/Fall.png',
             framesMax: 2
+        },
+        attack1: {
+            imageSrc: './img/Samurai/Sprites/Attack1.png',
+            framesMax: 4
         }
     }
 })
@@ -148,7 +156,8 @@ function animate() {
     } else {
         player.switchSprite('idle')
     }
-
+    
+    // jumping
     if (player.velocity.y < 0) {
         player.switchSprite('jump')
     } else if (player.velocity.y > 0) {
@@ -158,8 +167,19 @@ function animate() {
     // enemy movement
     if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
         enemy.velocity.x = -5
+        enemy.switchSprite('run')
     } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
         enemy.velocity.x = 5
+        enemy.switchSprite('run')
+    } else {
+        enemy.switchSprite('idle')
+    }
+
+    // jumping 
+    if (enemy.velocity.y < 0) {
+        enemy.switchSprite('jump')
+    } else if (player.velocity.y > 0) {
+        enemy.switchSprite('fall')
     }
 
     // detect for collision
@@ -210,7 +230,7 @@ window.addEventListener('keydown', (event) => {
             player.velocity.y = -20
             break
         case ' ':
-            player.isAttacking = true
+            player.attack()
             break
 
         
@@ -226,7 +246,7 @@ window.addEventListener('keydown', (event) => {
             enemy.velocity.y = -20
             break
         case 'ArrowDown':
-            enemy.isAttacking = true
+            enemy.attack()
             break
     }
 })
