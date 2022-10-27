@@ -1,4 +1,4 @@
-# Two-hit Knockout (2HKO) 
+# Sudden Death! 
 Your enemy only has two hits until they face certain death, but so do you. Bring down your enemy!
 
 ![Demo of the Two-hit Knockout Fighting Game](/img/2hko.gif "Demo of the Two-hit KNockout Fighting Game")
@@ -49,6 +49,7 @@ After the base functionality of the game is complete and V1 is live, here are so
 - [ ] Add character select screen
 - [ ] Add different stages
 - [ ] Add stage select screen
+- [ ] Add vs. CPU player option
 
 ## View My Other Projects
 Interested in some other related gaming projects? Check these out...
