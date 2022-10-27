@@ -1,5 +1,5 @@
 # Sudden Death! 
-Your enemy only has two hits until they face certain death, but so do you. Bring down your enemy!
+Your enemy only has two hits until they face certain death, but so do you... Bring down your enemy!
 
 ![Demo of the Two-hit Knockout Fighting Game](/img/2hko.gif "Demo of the Two-hit KNockout Fighting Game")
 
