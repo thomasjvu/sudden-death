@@ -1,7 +1,7 @@
 # Sudden Death! 
 Your enemy only has two hits until they face certain death, but so do you... Bring down your enemy!
 
-![Demo of the Two-hit Knockout Fighting Game](/img/2hko.gif "Demo of the Two-hit KNockout Fighting Game")
+![Demo of the Two-hit Knockout Fighting Game](/img/2hko.gif "Demo of the Two-hit Knockout Fighting Game")
 
 This repository is for a 2D Fighting Game using HTML Canvas &amp; JavaScript. It's meant to showcase the power of vanilla HTML and JavaScript, no game engine or framework needed!
 
